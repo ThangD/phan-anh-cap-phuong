@@ -335,7 +335,7 @@ NGƯỜI DÂN (không đăng nhập)
 - Không yêu cầu người dân đăng ký
 - Không có diễn đàn công khai
 - Phải đơn giản, dễ dùng
-- Ngân sách ~$130,000
+- Ngân sách 
 
 ---
 
