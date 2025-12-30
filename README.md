@@ -81,9 +81,11 @@ Chi phí sẽ được cập nhật sau khi xác định:
 
 ## 📝 Ghi chú
 
-- File `.docx` được tạo tự động từ `.md` bằng Pandoc
-- File `.docx` được ignore trong Git (xem `.gitignore`)
-- Để tạo lại file Word: `pandoc filename.md -o filename.docx`
+- File `.docx` và `.pdf` được tạo tự động từ `.md` bằng Pandoc
+- File `.docx` và `.pdf` được ignore trong Git (xem `.gitignore`)
+- **Tạo file Word**: `pandoc filename.md -o filename.docx`
+- **Tạo file PDF**: `pandoc filename.md -o filename.pdf`
+- **Tạo tất cả**: `./generate-docs.sh` (script tự động)
 
 ---
 

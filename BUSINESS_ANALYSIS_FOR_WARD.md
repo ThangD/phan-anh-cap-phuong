@@ -355,6 +355,8 @@ NGƯỜI DÂN (không đăng nhập)
 3. Hosting tại Việt Nam hay quốc tế?
 4. Thời hạn xử lý mỗi loại phản ánh?
 5. Ai phê duyệt phản hồi trước khi gửi cho dân?
+6. Chỉ cung cấp mã nguồn và ứng dụng, phần cứng (license nếu có) bên Phường sẽ lo?
+7. Chi phí maintenance khoảng 10-12%/năm của chi phí phát triển ban đầu?
 
 ---
 
