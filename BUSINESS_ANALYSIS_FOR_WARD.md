@@ -204,6 +204,9 @@ NGƯỜI DÂN (không đăng nhập)
           ↓
     Gửi phản ánh qua web
           ↓
+    AI TỰ ĐỘNG PHÂN LOẠI
+    (phân tích nội dung, hình ảnh)
+          ↓
     Nhận mã số ngay lập tức
           ↓
     Nhận SMS/Email xác nhận
@@ -212,9 +215,11 @@ NGƯỜI DÂN (không đăng nhập)
           
 CÁN BỘ PHƯỜNG (có đăng nhập)
           ↓
-    Nhận thông báo phản ánh mới
+    Nhận thông báo với kết quả phân loại AI
           ↓
-    Phân loại và phân công xử lý
+    Xác nhận/điều chỉnh phân loại AI
+          ↓
+    Phân công xử lý cho cán bộ
           ↓
     Cán bộ xử lý cập nhật tiến độ
           ↓
@@ -231,11 +236,14 @@ NGƯỜI DÂN (không đăng nhập)
     Nhận link đánh giá
           ↓
     Đánh giá kết quả
+          ↓
+    AI học từ feedback
 ```
 
 ### 6.2 Thời gian xử lý đề xuất
 
-- **Tiếp nhận & phân loại:** 24 giờ
+- **AI phân loại tự động:** 0-2 giờ
+- **Xác nhận phân loại:** 2-24 giờ
 - **Phân công xử lý:** 24-48 giờ
 - **Xử lý vấn đề:** 7-15 ngày (tùy mức độ)
 - **Phản hồi chính thức:** 1-2 ngày sau khi xử lý xong

@@ -140,12 +140,19 @@ Xây dựng trang web đơn giản cho phép:
 
 #### 4.1.3 Xử lý phản ánh (Cán bộ - Có đăng nhập)
 
-- **FR-006:** Tiếp nhận và phân loại
-  - Dashboard hiển thị phản ánh mới theo thời gian thực
-  - Xem chi tiết phản ánh
-  - Xác nhận hoặc điều chỉnh phân loại
-  - Đánh giá mức độ ưu tiên (Thấp, Trung bình, Cao, Khẩn cấp)
-  - Gắn nhãn, tag
+- **FR-006:** Tiếp nhận và phân loại tự động bằng AI
+  - **AI Auto-Classification**: Hệ thống AI tự động phân loại phản ánh dựa trên:
+    - Phân tích nội dung tiêu đề và mô tả
+    - Từ khóa liên quan (hạ tầng, môi trường, an ninh, dịch vụ công...)
+    - Phân tích hình ảnh đính kèm (nếu có)
+    - Vị trí địa lý
+    - Mức độ khẩn cấp (dựa trên từ ngữ sử dụng)
+  - **AI Confidence Score**: Hiển thị độ tin cậy của phân loại AI (0-100%)
+  - **Gợi ý phòng ban phụ trách**: AI đề xuất phòng ban phù hợp nhất
+  - Dashboard hiển thị phản ánh mới theo thời gian thực với kết quả phân loại AI
+  - Cán bộ **xác nhận** hoặc **điều chỉnh** phân loại nếu AI không chính xác
+  - Hệ thống học từ các điều chỉnh để cải thiện độ chính xác
+  - Gắn nhãn, tag bổ sung
   
 - **FR-007:** Phân công xử lý (Lãnh đạo)
   - Chọn ban/phòng phụ trách
@@ -268,12 +275,14 @@ Xây dựng trang web đơn giản cho phép:
     - Sắp xếp, lọc theo nhiều tiêu chí
     - Xem chi tiết từng phản ánh
 
-- **US-005:** Là cán bộ tiếp nhận, tôi muốn phân loại phản ánh
+- **US-005:** Là cán bộ tiếp nhận, tôi muốn xác nhận hoặc điều chỉnh phân loại AI
   - **Acceptance Criteria:**
-    - Xác nhận hoặc thay đổi phân loại
-    - Đánh giá mức độ ưu tiên
-    - Gắn nhãn, tag
-    - Thêm ghi chú nội bộ
+    - Xem kết quả phân loại của AI với confidence score
+    - Nếu AI chính xác (>80% confidence), chỉ cần click "Xác nhận"
+    - Nếu AI sai, điều chỉnh lại phân loại
+    - Hệ thống ghi nhận feedback để cải thiện AI
+    - Đánh giá mức độ ưu tiên (nếu AI chưa chính xác)
+    - Gắn nhãn, tag bổ sung
 
 ### 5.3 Lãnh đạo
 
@@ -321,13 +330,20 @@ Xây dựng trang web đơn giản cho phép:
           ↓
 [Hệ thống tiếp nhận & tạo mã phản ánh duy nhất]
           ↓
+[AI TỰ ĐỘNG PHÂN LOẠI]
+- Phân tích nội dung, hình ảnh
+- Gợi ý lĩnh vực, mức độ ưu tiên
+- Đề xuất phòng ban phụ trách
+- Confidence score
+          ↓
 [Gửi SMS/Email xác nhận cho người dân với mã số]
           ↓
-[Thông báo cho cán bộ tiếp nhận]
+[Thông báo cho cán bộ với kết quả phân loại AI]
           ↓
-[Cán bộ tiếp nhận phân loại và đánh giá ưu tiên]
+[Cán bộ xác nhận/điều chỉnh phân loại AI (nếu cần)]
           ↓
 [Lãnh đạo phân công cho cán bộ/phòng ban xử lý]
+(có thể sử dụng gợi ý của AI)
           ↓
 [Cán bộ xử lý cập nhật tiến độ định kỳ]
           ↓
@@ -340,24 +356,31 @@ Xây dựng trang web đơn giản cho phép:
 [Người dân đánh giá (không cần đăng nhập)]
           ↓
 [Đóng phản ánh hoặc mở lại nếu cần]
+          ↓
+[AI học từ feedback để cải thiện độ chính xác]
 ```
 
 ### 6.2 Quy trình chi tiết với timeline
 
-**Giai đoạn 1: Tiếp nhận (0-24h)**
+**Giai đoạn 1: Tiếp nhận và AI Auto-Classification (0-2h)**
 1. Người dân gửi phản ánh qua web
-2. Hệ thống tự động:
+2. Hệ thống AI tự động:
    - Tạo mã phản ánh
-   - Gửi xác nhận cho người dân
-   - Phân loại sơ bộ bằng AI
-   - Thông báo cho cán bộ tiếp nhận
+   - **Phân tích nội dung**: Sử dụng NLP để hiểu nội dung phản ánh
+   - **Phân loại tự động**: Xác định lĩnh vực (hạ tầng, môi trường, an ninh...)
+   - **Đánh giá mức độ ưu tiên**: Phát hiện từ khóa khẩn cấp
+   - **Gợi ý phòng ban**: Đề xuất đơn vị phụ trách phù hợp
+   - **Confidence score**: Tính toán độ tin cậy (0-100%)
+   - Gửi xác nhận cho người dân (SMS/Email)
+   - Thông báo cho cán bộ kèm kết quả phân loại AI
 
-**Giai đoạn 2: Phân loại và định tuyến (24-48h)**
+**Giai đoạn 2: Xác nhận phân loại AI (2-24h)**
 3. Cán bộ tiếp nhận:
-   - Xác nhận phân loại
-   - Đánh giá mức độ ưu tiên
-   - Chuyển cho ban/phòng phù hợp
-   - Thiết lập thời hạn xử lý
+   - Xem kết quả phân loại của AI và confidence score
+   - **Xác nhận** nếu AI phân loại chính xác (>80% confidence)
+   - **Điều chỉnh** nếu AI phân loại sai hoặc không chính xác
+   - Hệ thống AI học từ các điều chỉnh này (machine learning feedback loop)
+   - Thiết lập thời hạn xử lý (AI có thể gợi ý dựa trên loại phản ánh)
 
 **Giai đoạn 3: Xử lý (2-7 ngày)**
 4. Cán bộ chuyên môn:
@@ -548,11 +571,17 @@ Xây dựng trang web đơn giản cho phép:
 - SMS: VIETGUYS / VNPT SMS Gateway / Esms.vn
 - Email: SMTP / SendGrid / AWS SES
 
+**AI/ML (cho Auto-Classification):**
+- NLP Framework: spaCy / Hugging Face Transformers
+- Vietnamese Language Model: PhoBERT / viBERT
+- Machine Learning: scikit-learn / TensorFlow Lite
+- Image Analysis: OpenCV / TensorFlow (optional)
+- Training Data Management: Label Studio
+
 **Loại bỏ:**
 - ~~Elasticsearch (không cần search phức tạp)~~
 - ~~Message Queue (hệ thống đơn giản)~~
 - ~~Kubernetes (không cần orchestration phức tạp)~~
-- ~~AI/ML features~~
 - ~~Real-time WebSocket~~
 
 ### 8.3 Integration Requirements
@@ -655,13 +684,15 @@ Xây dựng trang web đơn giản cho phép:
 **Phase 1: MVP Development (Tháng 1-3)**
 - Trang gửi phản ánh (không cần đăng nhập)
 - Trang tra cứu tiến độ
-- Admin portal cơ bản (quản lý phản ánh)
+- **AI Auto-Classification**: Tích hợp model NLP để tự động phân loại
+- Admin portal cơ bản (quản lý phản ánh, xác nhận phân loại AI)
 - Tích hợp SMS/Email notification
 
 **Phase 2: Enhancement (Tháng 4-5)**
 - Dashboard và báo cáo thống kê
 - Phân quyền chi tiết
 - Tích hợp bản đồ
+- **Cải thiện AI model** dựa trên dữ liệu thực tế
 - Cải thiện UI/UX
 
 **Phase 3: Pilot (Tháng 6)**
