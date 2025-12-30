@@ -1,8 +1,8 @@
 # Business Analysis Document
 ## Hệ Thống Phản Ánh Kiến Nghị Cấp Phường
 
-**Ngày tạo:** 29/12/2025  
-**Phiên bản:** 2.0  
+**Ngày tạo:** 30/12/2025  
+**Phiên bản:** 1.0  
 **Dự án:** Hệ thống phản ánh kiến nghị cấp phường
 
 ---
@@ -284,9 +284,80 @@ NGƯỜI DÂN (không đăng nhập)
 
 ---
 
-## 9. Implementation Plan
+## 9. Phạm vi dự án & Chi phí
 
-### 9.1 Kế hoạch triển khai
+### 9.1 Nền tảng và Công nghệ
+
+**Platform:**
+- ✅ **Web-based application** - Truy cập qua trình duyệt web
+- ✅ **Responsive design** - Tự động điều chỉnh cho màn hình điện thoại, tablet
+- ❌ **KHÔNG phát triển App mobile** (iOS/Android) - Chỉ web responsive
+
+**Tại sao chọn Web thay vì App?**
+- Chi phí thấp hơn (không cần phát triển 2 platform iOS + Android)
+- Dễ cập nhật (cập nhật 1 lần, áp dụng cho tất cả thiết bị)
+- Không cần cài đặt, người dân truy cập ngay qua trình duyệt
+- Dễ bảo trì và nâng cấp
+
+### 9.2 Licenses & Open Source
+
+**Tất cả phần mềm sử dụng đều MIỄN PHÍ (Open Source):**
+- ✅ Backend: Node.js/NestJS (MIT License - Free)
+- ✅ Frontend: React (MIT License - Free)  
+- ✅ Database: PostgreSQL (PostgreSQL License - Free)
+- ✅ AI/ML: PhoBERT, spaCy (Apache 2.0 - Free)
+- ✅ Cache: Redis (BSD License - Free)
+
+**❌ KHÔNG sử dụng phần mềm thương mại có phí license**
+
+### 9.3 Chi phí dự án
+
+#### A. Chi phí Development (TRONG scope dự án):
+
+**Bao gồm:**
+- ✅ Team phát triển (Backend, Frontend, AI/ML developers)
+- ✅ Testing & QA
+- ✅ Tài liệu hướng dẫn và đào tạo
+- ✅ Deployment setup ban đầu (1 lần)
+- ✅ Bàn giao source code và tài liệu
+
+**Thời gian:** xxx tháng  
+**Chi phí:** Sẽ được báo giá chi tiết dựa trên quy mô team
+
+---
+
+#### B. Chi phí Hạ tầng & Vận hành (NGOÀI scope dự án):
+
+**❌ KHÔNG bao gồm trong dự án, Phường cần chi trả riêng:**
+
+| Hạng mục | Chi phí/tháng | Chi phí/năm | Ghi chú |
+|----------|---------------|-------------|---------|
+| **Cloud Hosting** | $x            | $x          | AWS/Azure/GCP |
+| **SMS Gateway** | $x            | $x          | Tùy số lượng tin nhắn |
+| **Email Service** | $x            | $x          | SendGrid/AWS SES |
+| **Domain & SSL** | -             | $x          | Tên miền + chứng chỉ |
+| **CDN & Storage** | $x            | $x          | Lưu trữ file/ảnh |
+| **Monitoring** | $x            | $x          | Giám sát hệ thống |
+| **TỔNG CỘNG** | **$x**        | **$x**      | |
+
+**Lưu ý quan trọng:**
+- Chi phí này là **CHI PHÍ HÀNG THÁNG/NĂM** để vận hành hệ thống
+- Phường cần **CÓ NGÂN SÁCH** cho các chi phí này
+- Chi phí có thể thấp hơn nếu:
+  - Sử dụng infrastructure trong nước (VNG Cloud, Viettel Cloud...)
+  - Số lượng phản ánh ít → ít SMS/Email hơn
+  - Có hỗ trợ từ thành phố cho infrastructure
+
+#### C. Nhân lực vận hành (Sau go-live):
+
+**Phường cần chuẩn bị:**
+- 1 Người quản trị hệ thống (có thể kiêm nhiệm)
+
+---
+
+## 10. Implementation Plan
+
+### 10.1 Kế hoạch triển khai
 
 **Tháng 1-3: Phát triển**
 - Xây dựng trang web cơ bản
@@ -309,29 +380,35 @@ NGƯỜI DÂN (không đăng nhập)
 - Truyền thông cho dân
 - Vận hành chính thức
 
-### 9.2 Nguồn lực cần thiết
+### 10.2 Yêu cầu từ Phường
 
-**Sẽ được cập nhật sau khi:**
-- Xác định rõ phạm vi và yêu cầu chi tiết
-- Đánh giá khả năng nguồn lực hiện có của Phường
-- Tham khảo ý kiến từ các bên liên quan
+**Trước khi bắt đầu:**
+- [ ] Phê duyệt phạm vi dự án và budget development
+- [ ] Chuẩn bị ngân sách cho hạ tầng vận hành
+- [ ] Chỉ định cán bộ đầu mối dự án
+- [ ] Chuẩn bị dữ liệu (danh sách phường, phòng ban, địa chỉ...)
 
-**Dự kiến bao gồm:**
-- Đội ngũ phát triển (số lượng và vai trò)
-- Thời gian triển khai
-- Chi phí ước tính (phát triển, hạ tầng, vận hành)
-- Nhân lực hỗ trợ và vận hành
+**Trong quá trình phát triển:**
+- [ ] Tham gia review tiến độ định kỳ (2 tuần/lần)
+- [ ] Cung cấp feedback về giao diện, quy trình
+- [ ] Chuẩn bị môi trường server (hoặc sử dụng cloud)
+
+**Trước khi ra mắt:**
+- [ ] Đào tạo cán bộ sử dụng hệ thống
+- [ ] Chuẩn bị tài liệu hướng dẫn người dân
+- [ ] Thiết lập SMS/Email service accounts
+- [ ] Chuẩn bị kế hoạch truyền thông
 
 ---
 
-## 10. Assumptions & Constraints
+## 11. Assumptions & Constraints
 
-### 10.1 Giả định
+### 11.1 Giả định
 - Phường có internet ổn định
 - Người dân có smartphone hoặc máy tính
 - Cán bộ biết sử dụng máy tính cơ bản
 
-### 10.2 Ràng buộc
+### 11.2 Ràng buộc
 - Không yêu cầu người dân đăng ký
 - Không có diễn đàn công khai
 - Phải đơn giản, dễ dùng
@@ -339,24 +416,32 @@ NGƯỜI DÂN (không đăng nhập)
 
 ---
 
-## 11. Next Steps
+## 12. Next Steps
 
-### 11.1 Hành động tiếp theo
+### 12.1 Hành động tiếp theo
 
 1. **Xin phê duyệt từ lãnh đạo phường**
-2. **Xác nhận ngân sách**
+   - Phê duyệt phạm vi dự án (Web-based only, no mobile app)
+   - Phê duyệt budget development
+   - Xác nhận ngân sách vận hành
+
+2. **Xác nhận chi phí hạ tầng**
+   - Quyết định hosting (Cloud hoặc on-premise)
+   - Quyết định SMS/Email service provider
+   - Chuẩn bị ngân sách cho các dịch vụ này
+
 3. **Chọn đơn vị phát triển**
 4. **Kick-off dự án**
 
-### 11.2 Câu hỏi cần làm rõ
+### 12.2 Câu hỏi cần làm rõ
 
-1. Phường có tên miền (domain) riêng chưa?
-2. Ngân sách SMS là bao nhiêu tin/tháng? (Ước tính 500 tin/tháng)
-3. Hosting tại Việt Nam hay quốc tế?
-4. Thời hạn xử lý mỗi loại phản ánh?
-5. Ai phê duyệt phản hồi trước khi gửi cho dân?
-6. Chỉ cung cấp mã nguồn và ứng dụng, phần cứng (license nếu có) bên Phường sẽ lo?
-7. Chi phí maintenance khoảng 10-12%/năm của chi phí phát triển ban đầu?
+1. Phường có ngân sách cho chi phí vận hành?
+2. Phường có tên miền (domain) riêng chưa?
+3. Ngân sách SMS là bao nhiêu tin/tháng? (Ước tính 500 tin/tháng)
+4. Hosting tại Việt Nam hay quốc tế?
+5. Thời hạn xử lý mỗi loại phản ánh?
+6. Ai phê duyệt phản hồi trước khi gửi cho dân?
+7. Phường có nhân sự IT để vận hành không?
 
 ---
 

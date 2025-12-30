@@ -58,6 +58,31 @@ Người dân đánh giá
 
 ---
 
+## 🎯 Scope & Constraints
+
+### Phạm vi dự án:
+- ✅ **Platform**: Web-based application only (Responsive design cho mobile browser)
+- ✅ **Development**: Backend API + Frontend Web + Admin Dashboard
+- ✅ **AI/ML**: Model training & integration
+- ✅ **Testing & Deployment**: QA, staging, production setup
+
+### Không bao gồm trong dự án:
+- ❌ **Mobile App Native**: iOS/Android apps (chỉ web responsive)
+- ❌ **Infrastructure Cost**: Server hosting, cloud services, bandwidth
+- ❌ **Third-party Services**: SMS gateway, Email service subscriptions
+- ❌ **AI/ML Licenses**: Commercial NLP models (sử dụng open-source)
+- ❌ **Hardware**: Servers, networking equipment
+- ❌ **Ongoing Operations**: Monthly hosting, maintenance sau go-live
+
+### Chi phí ngoài scope (do Phường chi trả):
+- 💰 Cloud hosting: ~$200-500/tháng
+- 💰 SMS service: ~$100-300/tháng (tùy số lượng)
+- 💰 Email service: ~$50-100/tháng
+- 💰 Domain & SSL: ~$50/năm
+- 💰 Monitoring tools: ~$50-100/tháng
+
+---
+
 ## 📊 Timeline
 
 - **Phase 1**: MVP với AI (Tháng 1-3)
@@ -71,11 +96,34 @@ Người dân đánh giá
 
 ## 💰 Budget Estimate
 
-Chi phí sẽ được cập nhật sau khi xác định:
-- Quy mô team phát triển
-- Yêu cầu về hạ tầng
-- Chi phí dịch vụ (SMS, Email, Hosting)
-- Chi phí AI/ML development
+### Chi phí Development (Trong scope dự án):
+- Team phát triển (7 tháng)
+- Công cụ development (IDE, tools, licenses)
+- Testing & QA
+- AI/ML development (open-source models)
+- Documentation & Training materials
+- Deployment setup (1 lần)
+
+**Estimated**: Sẽ được tính chi tiết sau khi xác định team size
+
+### Chi phí Infrastructure & Operations (NGOÀI scope):
+❌ **Không bao gồm trong dự án, do Phường chi trả riêng:**
+- Cloud hosting (AWS/Azure/GCP): ~$200-500/tháng
+- SMS Gateway subscription: ~$100-300/tháng
+- Email service (SendGrid/AWS SES): ~$50-100/tháng
+- Domain & SSL certificates: ~$50/năm
+- CDN & Storage: ~$50-100/tháng
+- Monitoring & Logging tools: ~$50-100/tháng
+- **Tổng cộng**: ~$500-1,150/tháng (~$6,000-14,000/năm)
+
+### Licenses (Open-source - Free):
+- ✅ Backend framework: Node.js/NestJS (MIT License)
+- ✅ Frontend: React (MIT License)
+- ✅ Database: PostgreSQL (PostgreSQL License)
+- ✅ AI/ML: PhoBERT, spaCy (Apache 2.0)
+- ✅ Cache: Redis (BSD License)
+
+**Không có chi phí license thương mại**
 
 ---
 
